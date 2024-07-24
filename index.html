@@ -3,76 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade de Programação - Canal de Filmes</title>
+    <title>Grade de Programação</title>
     <style>
         body {
-            font-family: 'Futura', sans-serif;
-            background-color: #2e003e; /* Dark purple background */
-            color: #e0e0e0; /* Light gray text for contrast */
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
-        .header {
             text-align: center;
+            overflow: auto; /* Adiciona rolagem na página se necessário */
+        }
+        header {
+            background-color: #222;
             padding: 20px;
-            background-color: #4a0072; /* Darker purple for header */
         }
-        .header img {
-            max-width: 100%;
-            height: auto;
+        header img {
+            max-width: 200px;
         }
-        .marquee-container {
-            overflow: hidden;
-            position: relative;
-            background-color: #3a004f; /* Darker purple for marquee background */
-            color: #00ffcc; /* Neon teal */
-            padding: 10px;
-            margin: 10px 0;
-            white-space: nowrap;
-        }
-        .marquee {
-            display: inline-block;
-            padding-left: 100%; /* Start off-screen */
-            animation: marquee 30s linear infinite; /* Slower marquee speed */
-            position: absolute;
-            white-space: nowrap;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .content {
+        .container {
             padding: 20px;
-            text-align: center;
+            overflow: auto; /* Permite rolagem quando necessário */
+            display: flex;
+            justify-content: center;
         }
         iframe {
-            width: 100%;
-            height: 600px;
-            border: 3px solid #00ffcc; /* Neon teal border */
-            box-shadow: 0 0 10px #00ffcc; /* Neon teal glow */
-        }
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background-color: #4a0072; /* Darker purple for footer */
-            color: #e0e0e0; /* Light gray text */
+            width: 590px; /* Define a largura fixa para a planilha */
+            border: none;
+            overflow: hidden; /* Evita barras de rolagem internas */
+            height: calc(100vh - 60px); /* Ajusta a altura para preencher a viewport menos o cabeçalho */
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <img src="https://conspiracaotv.github.io/LOGOCTVSMALL.png" alt="Logotipo do Canal">
-        <div class="marquee-container">
-            <div class="marquee">Bem-vindo à programação do Canal de Filmes! Confira a grade abaixo.</div>
-        </div>
-    </div>
-    <div class="content">
-        <h1>Grade de Programação</h1>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-    </div>
-    <div class="footer">
-        <p>Para mais informações, visite nosso site ou entre em contato conosco.</p>
-        <p>Obrigado por assistir ao Canal de Filmes!</p>
+    <header>
+        <img src="LOGOCTVSMALL.png" alt="Logotipo do Canal">
+    </header>
+    <div class="container">
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false" frameborder="0"></iframe>
     </div>
 </body>
 </html>
