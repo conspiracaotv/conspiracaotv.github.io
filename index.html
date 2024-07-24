@@ -56,7 +56,7 @@
 </head>
 <body>
     <header>
-        <img src="URL_DO_LOGOTIPO_DO_CANAL" alt="Logotipo do Canal">
+        <img src="https://conspiracaotv.github.io/LOGOCTVSMALL.png" alt="CTV ISSA">
     </header>
 
     <div id="schedule"></div>
@@ -68,17 +68,17 @@
         fetch(baseURL)
             .then(response => response.text())
             .then(data => {
-                const rows = data.split('\n').slice(1); // Remove header row
+                const rows = data.trim().split('\n').slice(1); // Remove header row and trim
                 const scheduleDiv = document.getElementById('schedule');
                 let currentSession = '';
 
                 rows.forEach(row => {
-                    const cells = row.split(',');
+                    const cells = row.split(',').map(cell => cell.trim().replace(/^"|"$/g, '')); // Trim cells and remove quotes
                     if (cells.length >= 4) {
-                        const sessionName = cells[0].trim();
-                        const sessionImage = cells[1].trim();
-                        const movieName = cells[2].trim();
-                        const moviePoster = cells[3].trim();
+                        const sessionName = cells[0];
+                        const sessionImage = cells[1];
+                        const movieName = cells[2];
+                        const moviePoster = cells[3];
 
                         if (sessionName !== currentSession) {
                             currentSession = sessionName;
