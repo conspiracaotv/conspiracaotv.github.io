@@ -1,117 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade de Programação</title>
+    <title>Grade de Programação - Canal de Filmes</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Futura', sans-serif;
+            background-color: #2e003e; /* Dark purple background */
+            color: #e0e0e0; /* Light gray text for contrast */
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f8f9fa;
-            color: #343a40;
+            padding: 0;
         }
-        header {
-            width: 100%;
+        .header {
             text-align: center;
-            margin-bottom: 20px;
-        }
-        header img {
-            max-width: 200px;
-        }
-        .session {
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 40px;
             padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #4a0072; /* Darker purple for header */
         }
-        .session img {
+        .header img {
             max-width: 100%;
-            margin-bottom: 20px;
+            height: auto;
         }
-        .session h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #007bff;
+        .marquee-container {
+            overflow: hidden;
+            position: relative;
+            background-color: #3a004f; /* Darker purple for marquee background */
+            color: #00ffcc; /* Neon teal */
+            padding: 10px;
+            margin: 10px 0;
+            white-space: nowrap;
         }
-        .session .movie {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+        .marquee {
+            display: inline-block;
+            padding-left: 100%; /* Start off-screen */
+            animation: marquee 30s linear infinite; /* Slower marquee speed */
+            position: absolute;
+            white-space: nowrap;
         }
-        .session .movie img {
-            max-width: 100px;
-            margin-right: 20px;
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
-        .session .movie h3 {
-            margin: 0;
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 3px solid #00ffcc; /* Neon teal border */
+            box-shadow: 0 0 10px #00ffcc; /* Neon teal glow */
+        }
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #4a0072; /* Darker purple for footer */
+            color: #e0e0e0; /* Light gray text */
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://conspiracaotv.github.io/LOGOCTVSMALL.png" alt="CTV ISSA">
-    </header>
-
-    <div id="schedule"></div>
-
-    <script>
-        const sheetID = '11PDys6jt5G9V-mf0GkThNuT1NRuVrto_LyrrvWv92ds';
-        const baseURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
-
-        fetch(baseURL)
-            .then(response => response.text())
-            .then(data => {
-                const rows = data.trim().split('\n').slice(1); // Remove header row and trim
-                const scheduleDiv = document.getElementById('schedule');
-                let currentSession = '';
-
-                rows.forEach(row => {
-                    const cells = row.split(',').map(cell => cell.trim().replace(/^"|"$/g, '')); // Trim cells and remove quotes
-                    if (cells.length >= 4) {
-                        const sessionName = cells[0];
-                        const sessionImage = cells[1];
-                        const movieName = cells[2];
-                        const moviePoster = cells[3];
-
-                        if (sessionName !== currentSession) {
-                            currentSession = sessionName;
-                            const sessionDiv = document.createElement('div');
-                            sessionDiv.className = 'session';
-
-                            const sessionImg = document.createElement('img');
-                            sessionImg.src = sessionImage;
-                            sessionDiv.appendChild(sessionImg);
-
-                            const sessionTitle = document.createElement('h2');
-                            sessionTitle.textContent = sessionName;
-                            sessionDiv.appendChild(sessionTitle);
-
-                            scheduleDiv.appendChild(sessionDiv);
-                        }
-
-                        const movieDiv = document.createElement('div');
-                        movieDiv.className = 'movie';
-
-                        const movieImg = document.createElement('img');
-                        movieImg.src = moviePoster;
-                        movieDiv.appendChild(movieImg);
-
-                        const movieTitle = document.createElement('h3');
-                        movieTitle.textContent = movieName;
-                        movieDiv.appendChild(movieTitle);
-
-                        scheduleDiv.lastChild.appendChild(movieDiv);
-                    }
-                });
-            })
-            .catch(error => console.error('Error fetching the sheet data:', error));
-    </script>
+    <div class="header">
+        <img src="https://conspiracaotv.github.io/LOGOCTVSMALL.png" alt="Logotipo do Canal">
+        <div class="marquee-container">
+            <div class="marquee">Bem-vindo à programação do Canal de Filmes! Confira a grade abaixo.</div>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Grade de Programação</h1>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    </div>
+    <div class="footer">
+        <p>Para mais informações, visite nosso site ou entre em contato conosco.</p>
+        <p>Obrigado por assistir ao Canal de Filmes!</p>
+    </div>
 </body>
 </html>
