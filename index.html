@@ -17,6 +17,11 @@
         header {
             background-color: #222;
             padding: 20px;
+            position: fixed; /* Torna o cabeçalho fixo */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo */
         }
         header img {
             max-width: 200px;
@@ -25,11 +30,11 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: auto; /* Altura ajustável conforme o conteúdo */
+            margin-top: 80px; /* Adiciona margem superior para o conteúdo não ficar sob o cabeçalho */
         }
         iframe {
             width: 406px; /* Define a largura da planilha */
-            height: 4200px; /* Define a altura fixa do iframe */
+            height: 3850px; /* Define a altura fixa do iframe */
             border: none;
             overflow: hidden; /* Evita barras de rolagem internas */
         }
