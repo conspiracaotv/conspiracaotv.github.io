@@ -13,6 +13,7 @@
             padding: 0;
             text-align: center;
             overflow: auto; /* Adiciona rolagem na página se necessário */
+            scroll-behavior: smooth; /* Faz a rolagem suave ao topo */
         }
         header {
             background-color: #222;
@@ -28,7 +29,7 @@
             justify-content: center;
         }
         iframe {
-            width: 406px; /* Define a largura fixa para a planilha */
+            width: 406px; /* Atualiza a largura para a planilha */
             border: none;
             overflow: hidden; /* Evita barras de rolagem internas */
             height: calc(100vh - 60px); /* Ajusta a altura para preencher a viewport menos o cabeçalho */
@@ -40,7 +41,13 @@
         <img src="LOGOCTVSMALL.png" alt="Logotipo do Canal">
     </header>
     <div class="container">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false" frameborder="0"></iframe>
+        <iframe id="spreadsheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false&amp;cache_buster=<?=time()?>" frameborder="0"></iframe>
     </div>
+    <script>
+        // Voltar ao topo da página ao recarregar
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 </html>
