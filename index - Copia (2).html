@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            /* overflow: hidden; */
+            overflow: hidden; /* Remove rolagem da página para que apenas o iframe tenha rolagem */
         }
         header {
             background-color: #1a0033; /* Fundo azul marinho */
@@ -64,18 +64,18 @@
             color: #fff;
             font-size: 12px;
             font-weight: bold;
-            padding: 8px 10px;
+            padding: 8px 10px; /* Reduzido o padding para ajuste */
             white-space: nowrap;
             overflow: hidden;
             border: 2px solid #0ff;
             border-radius: 5px;
             box-shadow: 0 0 10px #0ff;
-            width: 406px;
-            max-width: 406px;
-            margin: 0px;
+            width: 406px; /* Largura do letreiro ajustada para ocupar o espaço disponível */
+            max-width: 406px; /* Largura máxima do letreiro */
+            margin: 0px; /* Centraliza o letreiro */
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: center; /* Centraliza verticalmente o texto dentro do letreiro */
+            justify-content: center; /* Centraliza horizontalmente o texto dentro do letreiro */
         }
         .ticker span {
             display: inline-block;
@@ -86,34 +86,34 @@
             100% { transform: translateX(-150%); }
         }
         .main-content {
-            margin-top: 250px;
-            height: calc(100vh - 250px); /* Altura da viewport menos a altura do cabeçalho */
-            overflow-y: auto;
+            margin-top: 250px; /* Espaço para o cabeçalho fixo */
+            height: calc(100vh - 300px); /* Altura do corpo da página menos a altura do cabeçalho e rodapé */
+            overflow-y: auto; /* Adiciona rolagem vertical ao conteúdo principal */
         }
         .frame-container {
-            width: 406px;
-            height: 100%;
-            margin: 0 auto;
-            border: 1px solid #ff00ff;
+            width: 406px; /* Largura do frame */
+            height: 100%; /* Altura total do frame */
+            margin: 0 auto; /* Centraliza o frame */
+            border: 1px solid #ff00ff; /* Borda rosa */
         }
         iframe {
-            width: 100%;
-            height: 100%;
+            width: 100%; /* Largura total do frame */
+            height: 100%; /* Altura total do frame */
             border: none;
-            overflow: auto;
+            overflow-y: scroll; /* Adiciona rolagem vertical interna ao iframe */
         }
         footer {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 50px;
-            background-color: #1a0033;
-            color: #00ffff;
+            height: 50px; /* Altura do rodapé */
+            background-color: #1a0033; /* Fundo azul marinho */
+            color: #00ffff; /* Texto ciano */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 -1px 5px #ff00ff;
+            box-shadow: 0 -1px 5px #ff00ff; /* Sombra rosa */
         }
     </style>
     <script>
@@ -121,18 +121,18 @@
             var iframe = document.getElementById('content-frame');
             if (page === 'grade') {
                 iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&single=true&widget=true&headers=false&chrome=false&cache_buster=" + new Date().getTime();
-                iframe.style.height = "100%"; // Ajuste a altura para 100% ou conforme necessário
+                iframe.style.height = "5000px"; // Define altura fixa para a página de grade
             } else if (page === 'about') {
-                iframe.src = "about.html";
-                iframe.style.height = "100%";
+                iframe.src = "about.html"; // URL da página About
+                iframe.style.height = "100%"; // Reseta a altura do iframe
             } else if (page === 'live') {
-                iframe.src = "live.html";
-                iframe.style.height = "100%";
+                iframe.src = "live.html"; // URL da página Live
+                iframe.style.height = "100%"; // Reseta a altura do iframe
             }
         }
     </script>
 </head>
-<body onload="loadContent('grade')">
+<body onload="loadContent('grade')"> <!-- Carrega a página de grade por padrão -->
     <header>
         <img src="LOGOCTVSMALL.png" alt="Logotipo do Canal">
         <div class="menu">
@@ -147,4 +147,10 @@
     <div class="main-content">
         <div class="frame-container">
             <iframe id="content-frame" frameborder="0"></iframe>
-        </div
+        </div>
+    </div>
+    <footer>
+        Comunidade CTV
+    </footer>
+</body>
+</html>
