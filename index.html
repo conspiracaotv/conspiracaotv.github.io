@@ -8,7 +8,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
         
         body {
-            background-color: #000;
+            background-color: #2e004b; /* Fundo roxo escuro */
             color: #fff;
             font-family: 'Press Start 2P', cursive;
             margin: 0;
@@ -17,20 +17,20 @@
             overflow: hidden; /* Remove rolagem da página para que apenas o iframe tenha rolagem */
         }
         header {
-            background-color: #222;
+            background-color: #1a0033; /* Fundo azul marinho */
             padding: 10px 0;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 280px; /* Altura fixa do cabeçalho */
+            height: 200px; /* Altura fixa do cabeçalho */
             z-index: 1000;
-            box-shadow: 0 0 10px #0ff;
+            box-shadow: 0 0 10px #ff00ff; /* Sombra rosa */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between; /* Espaça os itens verticalmente */
-            color: #0ff;
+            justify-content: space-between;
+            color: #00ffff; /* Cor do texto ciano */
         }
         header img {
             max-width: 150px; /* Largura da logo ajustada */
@@ -39,36 +39,37 @@
         }
         .menu {
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* Alinha os botões na horizontal */
             align-items: center;
+            justify-content: center;
         }
         .menu button {
-            background-color: #0ff;
+            background-color: #ff00ff; /* Fundo rosa */
             color: #000;
             border: none;
             padding: 10px 20px;
-            margin: 5px 0;
+            margin: 5px; /* Espaçamento entre os botões */
             font-size: 12px;
             font-family: 'Press Start 2P', cursive;
             cursor: pointer;
             border-radius: 5px;
-            box-shadow: 0 0 10px #0ff;
+            box-shadow: 0 0 10px #ff00ff; /* Sombra rosa */
             transition: background-color 0.3s;
         }
         .menu button:hover {
-            background-color: #ff0;
+            background-color: #00ffff; /* Fundo ciano ao passar o mouse */
         }
         .ticker {
-            background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(255,0,255,1) 100%);
+            background: linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(0,255,255,1) 100%);
             color: #fff;
             font-size: 12px;
             font-weight: bold;
             padding: 8px 10px; /* Reduzido o padding para ajuste */
             white-space: nowrap;
             overflow: hidden;
-            border: 2px solid #0ff;
+            border: 2px solid #ff00ff; /* Borda rosa */
             border-radius: 5px;
-            box-shadow: 0 0 10px #0ff;
+            box-shadow: 0 0 10px #ff00ff; /* Sombra rosa */
             width: 100%; /* Largura do letreiro ajustada para ocupar o espaço disponível */
             max-width: 406px; /* Largura máxima do letreiro */
             margin: 10px auto; /* Centraliza o letreiro */
@@ -85,15 +86,15 @@
             100% { transform: translateX(-100%); }
         }
         .main-content {
-            margin-top: 320px; /* Espaço para o cabeçalho fixo */
-            height: calc(100vh - 370px); /* Altura do corpo da página menos a altura do cabeçalho e rodapé */
+            margin-top: 250px; /* Espaço para o cabeçalho fixo */
+            height: calc(100vh - 300px); /* Altura do corpo da página menos a altura do cabeçalho e rodapé */
             overflow-y: auto; /* Adiciona rolagem vertical ao conteúdo principal */
         }
         .frame-container {
             width: 424px; /* Largura do frame */
             height: 100%; /* Altura total do frame */
             margin: 0 auto; /* Centraliza o frame */
-            border: 1px solid #0ff; /* Opcional: borda para visualizar o contorno do frame */
+            border: 1px solid #ff00ff; /* Borda rosa */
         }
         iframe {
             width: 100%; /* Largura total do frame */
@@ -107,12 +108,12 @@
             left: 0;
             width: 100%;
             height: 50px; /* Altura do rodapé */
-            background-color: #222;
-            color: #0ff;
+            background-color: #1a0033; /* Fundo azul marinho */
+            color: #00ffff; /* Texto ciano */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 -1px 5px #0ff;
+            box-shadow: 0 -1px 5px #ff00ff; /* Sombra rosa */
         }
     </style>
     <script>
@@ -125,7 +126,7 @@
                 iframe.src = "about.html"; // URL da página About
                 iframe.style.height = "100%"; // Reseta a altura do iframe
             } else if (page === 'live') {
-                iframe.src = "https://player.twitch.tv/?channel=conspiracaotv2&parent=www.github.io";
+                iframe.src = "live.html"; // URL da página Live
                 iframe.style.height = "100%"; // Reseta a altura do iframe
             }
         }
