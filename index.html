@@ -5,51 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade de Programação</title>
     <style>
-        /* Importa a fonte nostálgica */
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+        
         body {
-            background-color: #0f0f0f; /* Cor de fundo escura */
-            color: #e0e0e0; /* Cor do texto */
-            font-family: 'Press Start 2P', cursive; /* Fonte nostálgica */
+            background-color: #000;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
             margin: 0;
             padding: 0;
             text-align: center;
             overflow: auto; /* Permite rolagem na página se necessário */
         }
         header {
-            background-color: #222; /* Fundo escuro do cabeçalho */
-            padding: 20px;
+            background-color: #222;
+            padding: 10px 0; /* Ajuste da padding para centralizar os itens */
             position: fixed; /* Torna o cabeçalho fixo */
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra ao cabeçalho */
+            box-shadow: 0 0 10px #0ff; /* Efeito neon no cabeçalho */
         }
-        .header-content {
-            margin-bottom: 20px; /* Espaço para o letreiro */
+        header img {
+            max-width: 200px;
+            margin: 0 auto;
+            display: block;
         }
-        .logo {
-            margin-bottom: 20px; /* Espaço abaixo do logotipo */
-        }
-        .footer-text {
-            font-size: 14px; /* Fonte menor para o texto entre o letreiro e a logo */
-            margin: 5px 0;
-            color: #e0e0e0; /* Cor do texto */
+        .text-lines {
+            color: #0ff;
+            font-size: 18px;
+            margin: 10px 0;
         }
         .ticker {
-            background: linear-gradient(90deg, rgba(255,0,150,1) 0%, rgba(0,255,255,1) 100%);
+            background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(255,0,255,1) 100%);
             color: #fff;
-            font-size: 18px; /* Fonte menor para melhor leitura */
+            font-size: 18px;
             font-weight: bold;
             padding: 10px 0;
             white-space: nowrap;
             overflow: hidden;
-            position: relative;
-            text-align: center;
-            margin: 0 auto;
-            width: 100%;
+            border: 2px solid #0ff; /* Borda neon */
+            border-radius: 5px; /* Arredondamento das bordas */
+            box-shadow: 0 0 10px #0ff; /* Efeito neon */
+            width: 406px; /* Largura do letreiro igual à largura do iframe */
+            margin: 0 auto; /* Centraliza o letreiro */
         }
         .ticker span {
             display: inline-block;
@@ -64,7 +63,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            margin-top: 200px; /* Adiciona margem superior para o conteúdo não ficar sob o cabeçalho */
+            margin-top: 120px; /* Margem superior ajustada para garantir visibilidade do letreiro e cabeçalho */
         }
         iframe {
             width: 406px; /* Define a largura da planilha */
@@ -76,15 +75,11 @@
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <img src="LOGOCTVSMALL.png" alt="Logotipo do Canal" class="logo">
-            <div class="footer-text">
-                Entre em contato: info@canal.com<br>
-                © 2024 Canal de TV. Todos os direitos reservados.
-            </div>
-            <div class="ticker">
-                <span>TESTE | Teste de rolagem horizontal do letreiro | TESTE</span>
-            </div>
+        <img src="LOGOCTVSMALL.png" alt="Logotipo do Canal">
+        <div class="text-lines">Linha de Texto 1</div>
+        <div class="text-lines">Linha de Texto 2</div>
+        <div class="ticker">
+            <span>TESTE 123 CTV CTV</span>
         </div>
     </header>
     <div class="container">
