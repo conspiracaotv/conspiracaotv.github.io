@@ -37,26 +37,9 @@
             height: auto; /* Mantém a proporção da altura da logo */
             margin-top: 10px; /* Espaço acima da logo */
         }
-        .menu {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .menu button {
-            background-color: #0ff;
-            color: #000;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px 0;
+        .text-lines {
             font-size: 12px;
-            font-family: 'Press Start 2P', cursive;
-            cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 0 0 10px #0ff;
-            transition: background-color 0.3s;
-        }
-        .menu button:hover {
-            background-color: #ff0;
+            margin: 5px 0; /* Ajuste do espaçamento entre linhas de texto */
         }
         .ticker {
             background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(255,0,255,1) 100%);
@@ -86,12 +69,12 @@
         }
         .main-content {
             margin-top: 320px; /* Espaço para o cabeçalho fixo */
-            height: calc(100vh - 370px); /* Altura do corpo da página menos a altura do cabeçalho e rodapé */
+            height: 570px; /* Altura do corpo da página menos a altura do cabeçalho e rodapé */
             overflow-y: auto; /* Adiciona rolagem vertical ao conteúdo principal */
         }
         .frame-container {
             width: 424px; /* Largura do frame */
-            height: 100%; /* Altura total do frame */
+            height: 5000px; /* Altura total do frame */
             margin: 0 auto; /* Centraliza o frame */
             border: 1px solid #0ff; /* Opcional: borda para visualizar o contorno do frame */
         }
@@ -115,37 +98,19 @@
             box-shadow: 0 -1px 5px #0ff;
         }
     </style>
-    <script>
-        function loadContent(page) {
-            var iframe = document.getElementById('content-frame');
-            if (page === 'grade') {
-                iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&single=true&widget=true&headers=false&chrome=false&cache_buster=" + new Date().getTime();
-                iframe.style.height = "5000px"; // Define altura fixa para a página de grade
-            } else if (page === 'about') {
-                iframe.src = "about.html"; // URL da página About
-                iframe.style.height = "100%"; // Reseta a altura do iframe
-            } else if (page === 'live') {
-                iframe.src = "https://player.twitch.tv/?channel=conspiracaotv2&parent=www.github.io";
-                iframe.style.height = "100%"; // Reseta a altura do iframe
-            }
-        }
-    </script>
 </head>
-<body onload="loadContent('grade')"> <!-- Carrega a página de grade por padrão -->
+<body>
     <header>
         <img src="LOGOCTVSMALL.png" alt="Logotipo do Canal">
-        <div class="menu">
-            <button onclick="loadContent('grade')">Grade</button>
-            <button onclick="loadContent('about')">About</button>
-            <button onclick="loadContent('live')">Live</button>
-        </div>
+        <div class="text-lines">Linha de Texto 1</div>
+        <div class="text-lines">Linha de Texto 2</div>
         <div class="ticker">
             <span>TESTE 123 CTV CTV</span>
         </div>
     </header>
     <div class="main-content">
         <div class="frame-container">
-            <iframe id="content-frame" frameborder="0"></iframe>
+            <iframe id="spreadsheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false&amp;cache_buster=<?=time()?>" frameborder="0"></iframe>
         </div>
     </div>
     <footer>
