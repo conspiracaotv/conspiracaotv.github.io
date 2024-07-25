@@ -60,19 +60,19 @@
             background-color: #00ffff; /* Fundo ciano ao passar o mouse */
         }
         .ticker {
-            background: linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(0,255,255,1) 100%);
+            background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(255,0,255,1) 100%);
             color: #fff;
             font-size: 12px;
             font-weight: bold;
             padding: 8px 10px; /* Reduzido o padding para ajuste */
             white-space: nowrap;
             overflow: hidden;
-            border: 2px solid #ff00ff; /* Borda rosa */
+            border: 2px solid #0ff;
             border-radius: 5px;
-            box-shadow: 0 0 10px #ff00ff; /* Sombra rosa */
-            width: 100%; /* Largura do letreiro ajustada para ocupar o espaço disponível */
+            box-shadow: 0 0 10px #0ff;
+            width: 406px; /* Largura do letreiro ajustada para ocupar o espaço disponível */
             max-width: 406px; /* Largura máxima do letreiro */
-            margin: 10px auto; /* Centraliza o letreiro */
+            margin: 0px; /* Centraliza o letreiro */
             display: flex;
             align-items: center; /* Centraliza verticalmente o texto dentro do letreiro */
             justify-content: center; /* Centraliza horizontalmente o texto dentro do letreiro */
@@ -82,8 +82,8 @@
             animation: ticker 15s linear infinite;
         }
         @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            0% { transform: translateX(150%); }
+            100% { transform: translateX(-150%); }
         }
         .main-content {
             margin-top: 250px; /* Espaço para o cabeçalho fixo */
@@ -91,7 +91,7 @@
             overflow-y: auto; /* Adiciona rolagem vertical ao conteúdo principal */
         }
         .frame-container {
-            width: 424px; /* Largura do frame */
+            width: 406px; /* Largura do frame */
             height: 100%; /* Altura total do frame */
             margin: 0 auto; /* Centraliza o frame */
             border: 1px solid #ff00ff; /* Borda rosa */
@@ -150,7 +150,7 @@
         </div>
     </div>
     <footer>
-        Rodapé Fixo
+        Comunidade CTV
     </footer>
 </body>
 </html>
