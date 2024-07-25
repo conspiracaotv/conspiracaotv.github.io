@@ -14,42 +14,50 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow: auto; /* Permite rolagem na página se necessário */
+            overflow: hidden; /* Remove rolagem da página para que apenas o iframe tenha rolagem */
         }
         header {
             background-color: #222;
-            padding: 10px 0; /* Ajuste da padding para centralizar os itens */
-            position: fixed; /* Torna o cabeçalho fixo */
+            padding: 10px 0;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo */
-            box-shadow: 0 0 10px #0ff; /* Efeito neon no cabeçalho */
+            height: 240px; /* Altura fixa do cabeçalho */
+            z-index: 1000;
+            box-shadow: 0 0 10px #0ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between; /* Espaça os itens verticalmente */
+            color: #0ff;
         }
         header img {
-            max-width: 280px; /* Largura da logo */
+            max-width: 150px; /* Largura da logo ajustada */
             height: auto; /* Mantém a proporção da altura da logo */
-            margin: 0 auto;
-            display: block;
+            margin-top: 10px; /* Espaço acima da logo */
         }
         .text-lines {
-            color: #0ff;
-            font-size: 18px;
-            margin: 10px 0;
+            font-size: 12px;
+            margin: 5px 0; /* Ajuste do espaçamento entre linhas de texto */
         }
         .ticker {
             background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(255,0,255,1) 100%);
             color: #fff;
-            font-size: 18px;
+            font-size: 12px;
             font-weight: bold;
-            padding: 10px 0;
+            padding: 8px 10px; /* Reduzido o padding para ajuste */
             white-space: nowrap;
             overflow: hidden;
-            border: 2px solid #0ff; /* Borda neon */
-            border-radius: 5px; /* Arredondamento das bordas */
-            box-shadow: 0 0 10px #0ff; /* Efeito neon */
-            width: 406px; /* Largura do letreiro igual à largura do iframe */
-            margin: 0 auto; /* Centraliza o letreiro */
+            border: 2px solid #0ff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #0ff;
+            width: 100%; /* Largura do letreiro ajustada para ocupar o espaço disponível */
+            max-width: 406px; /* Largura máxima do letreiro */
+            margin: 10px auto; /* Centraliza o letreiro */
+            display: flex;
+            align-items: center; /* Centraliza verticalmente o texto dentro do letreiro */
+            justify-content: center; /* Centraliza horizontalmente o texto dentro do letreiro */
         }
         .ticker span {
             display: inline-block;
@@ -60,23 +68,20 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            margin-top: 432px; /* Ajusta a margem superior para criar o espaço de 12px abaixo do cabeçalho (280px da logo + 20px do padding + 12px de espaçamento + 100px adicionais) */
+        .main-content {
+            margin-top: 280px; /* Espaço para o cabeçalho fixo */
+            height: calc(100vh - 240px); /* Altura do corpo da página menos a altura do cabeçalho */
+            overflow: hidden; /* Remove rolagem na página para que apenas o iframe tenha rolagem */
         }
         .frame-container {
-            width: 406px; /* Largura do frame */
-            height: 600px; /* Altura do frame */
-            overflow: hidden; /* Evita barras de rolagem externas */
-            position: relative;
+            width: 424px; /* Largura do frame */
+            height: calc(100% - 106px); /* Altura total do frame menos o espaço de 106px no fundo */
             margin: 0 auto; /* Centraliza o frame */
             border: 1px solid #0ff; /* Opcional: borda para visualizar o contorno do frame */
         }
         iframe {
-            width: 406px; /* Largura da planilha */
-            height: 5000px; /* Altura total da planilha */
+            width: 100%; /* Largura total do frame */
+            height: 100%; /* Altura total do frame */
             border: none;
             overflow-y: scroll; /* Adiciona rolagem vertical interna */
         }
@@ -91,7 +96,7 @@
             <span>TESTE 123 CTV CTV</span>
         </div>
     </header>
-    <div class="container">
+    <div class="main-content">
         <div class="frame-container">
             <iframe id="spreadsheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false&amp;cache_buster=<?=time()?>" frameborder="0"></iframe>
         </div>
