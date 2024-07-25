@@ -6,7 +6,7 @@
     <title>Grade de Programação</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
+        
         body {
             background-color: #2e004b; /* Fundo roxo escuro */
             color: #fff;
@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            overflow: auto;
+            /* overflow: hidden; */
         }
         header {
             background-color: #1a0033; /* Fundo azul marinho */
@@ -115,27 +115,12 @@
             justify-content: center;
             box-shadow: 0 -1px 5px #ff00ff; /* Sombra rosa */
         }
-        
-        /* Estilização das barras de rolagem */
-        ::-webkit-scrollbar {
-            width: 12px; /* Largura da barra de rolagem */
-        }
-        ::-webkit-scrollbar-track {
-            background: #2e004b; /* Cor do fundo da barra de rolagem */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #ff00ff; /* Cor do "polegar" da barra de rolagem */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ffff; /* Cor do "polegar" quando o cursor está sobre ele */
-        }
     </style>
     <script>
         function loadContent(page) {
             var iframe = document.getElementById('content-frame');
             if (page === 'grade') {
-                iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=1783662163&amp;single=true&amp;widget=true&amp;headers=false&chrome=false&cache_buster=" + new Date().getTime();
+                iframe.src = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&single=true&widget=true&headers=false&chrome=false&cache_buster=" + new Date().getTime();
                 iframe.style.height = "100%"; // Ajuste a altura para 100% ou conforme necessário
             } else if (page === 'about') {
                 iframe.src = "about.html";
