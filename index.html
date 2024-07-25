@@ -23,7 +23,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 240px; /* Altura fixa do cabeçalho */
+            height: 280px; /* Altura fixa do cabeçalho */
             z-index: 1000;
             box-shadow: 0 0 10px #0ff;
             display: flex;
@@ -69,13 +69,13 @@
             100% { transform: translateX(-100%); }
         }
         .main-content {
-            margin-top: 280px; /* Espaço para o cabeçalho fixo */
-            height: calc(100vh - 240px); /* Altura do corpo da página menos a altura do cabeçalho */
-            overflow: hidden; /* Remove rolagem na página para que apenas o iframe tenha rolagem */
+            margin-top: 300px; /* Espaço para o cabeçalho fixo */
+            height: calc(100vh - 280px - 50px); /* Altura do corpo da página menos a altura do cabeçalho e rodapé */
+            overflow-y: auto; /* Adiciona rolagem vertical ao conteúdo principal */
         }
         .frame-container {
             width: 424px; /* Largura do frame */
-            height: calc(100% - 106px); /* Altura total do frame menos o espaço de 106px no fundo */
+            height: 5000px; /* Altura total do frame */
             margin: 0 auto; /* Centraliza o frame */
             border: 1px solid #0ff; /* Opcional: borda para visualizar o contorno do frame */
         }
@@ -83,7 +83,20 @@
             width: 100%; /* Largura total do frame */
             height: 100%; /* Altura total do frame */
             border: none;
-            overflow-y: scroll; /* Adiciona rolagem vertical interna */
+            overflow-y: scroll; /* Adiciona rolagem vertical interna ao iframe */
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px; /* Altura do rodapé */
+            background-color: #222;
+            color: #0ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 -1px 5px #0ff;
         }
     </style>
 </head>
@@ -101,5 +114,8 @@
             <iframe id="spreadsheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false&amp;cache_buster=<?=time()?>" frameborder="0"></iframe>
         </div>
     </div>
+    <footer>
+        Rodapé Fixo
+    </footer>
 </body>
 </html>
