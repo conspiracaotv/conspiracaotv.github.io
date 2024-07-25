@@ -83,7 +83,18 @@
         </div>
     </header>
     <div class="container">
-        <iframe id="spreadsheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false&amp;cache_buster=<?=time()?>" frameborder="0"></iframe>
+        <iframe id="spreadsheet" src="" frameborder="0"></iframe>
     </div>
+    <script>
+        // Função para atualizar o cache do iframe
+        function updateIframeSrc() {
+            var iframe = document.getElementById('spreadsheet');
+            var timestamp = new Date().getTime(); // Timestamp para evitar cache
+            iframe.src = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRJFpP8Xlq3fPHGhFYjgCNbbHUTaatU4mVFxfvNZPsrFX1S8iM-Tbin6Cutgu1n90xtxgg8rZtjvYog/pubhtml?gid=812209664&amp;single=true&amp;widget=true&amp;headers=false&amp;chrome=false&amp;cache_buster=' + timestamp;
+        }
+
+        // Atualiza o iframe na carga da página
+        window.onload = updateIframeSrc;
+    </script>
 </body>
 </html>
