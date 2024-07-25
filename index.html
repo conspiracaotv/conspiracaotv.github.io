@@ -87,7 +87,7 @@
         }
         .main-content {
             margin-top: 250px;
-            height: calc(100vh - 250px); /* Altura da viewport menos a altura do cabeçalho */
+            height: calc(100vh - 300px); /* Altura da viewport menos a altura do cabeçalho e rodapé */
             overflow-y: auto;
         }
         .frame-container {
@@ -107,13 +107,13 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 50px;
-            background-color: #1a0033;
-            color: #00ffff;
+            height: 50px; /* Altura do rodapé */
+            background-color: #1a0033; /* Fundo azul marinho */
+            color: #00ffff; /* Texto ciano */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 -1px 5px #ff00ff;
+            box-shadow: 0 -1px 5px #ff00ff; /* Sombra rosa */
         }
     </style>
     <script>
@@ -147,4 +147,10 @@
     <div class="main-content">
         <div class="frame-container">
             <iframe id="content-frame" frameborder="0"></iframe>
-        </div
+        </div>
+    </div>
+    <footer>
+        Comunidade CTV
+    </footer>
+</body>
+</html>
